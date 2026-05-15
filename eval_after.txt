@@ -1,0 +1,219 @@
+Overriding: init_from = resume
+Overriding: out_dir = out-tinystories
+Overriding: device = cpu
+Overriding: dtype = float32
+Overriding: top_k = None
+number of parameters: 123.65M
+Loading meta from data/tinystories/meta.pkl...
+meta.pkl has no stoi/itos; assuming GPT-2 BPE (tiktoken)...
+Loaded 30 prompt/response pairs from eval_data.json
+----
+item 0
+prompt:   'One day, a little girl named Lily found a needle in her room.'
+response: 'She knew it was difficult to play with it because it was sharp.'
+response_tokens: 14
+sum_logprob: -40.442772
+sequence_probability: 2.728519e-18
+----
+item 1
+prompt:   'She knew it was difficult to play with it because it was sharp.'
+response: 'Lily wanted to share the needle with her mom, so she could sew a button on her shirt.'
+response_tokens: 21
+sum_logprob: -63.537312
+sequence_probability: 2.547399e-28
+----
+item 2
+prompt:   'Lily wanted to share the needle with her mom, so she could sew a button on her shirt.'
+response: 'Lily went to her mom and said, "Mom, I found this needle.'
+response_tokens: 17
+sum_logprob: -35.636227
+sequence_probability: 3.337208e-16
+----
+item 3
+prompt:   'Lily went to her mom and said, "Mom, I found this needle.'
+response: 'Can you share it with me and sew my shirt?" Her mom smiled and said, "Yes, Lily, we can share the needle and fix your shirt."\n\nTogether, they shared the needle and sewed the button on Lily\'s shirt.'
+response_tokens: 50
+sum_logprob: -inf
+sequence_probability: 9.068804e-50
+----
+item 4
+prompt:   'Can you share it with me and sew my shirt?" Her mom smiled and said, "Yes, Lily, we can share the needle and fix your shirt."\n\nTogether, they shared the needle and sewed the button on Lily\'s shirt.'
+response: 'It was not difficult for them because they were sharing and helping each other.'
+response_tokens: 15
+sum_logprob: -53.010479
+sequence_probability: 9.502583e-24
+----
+item 5
+prompt:   'It was not difficult for them because they were sharing and helping each other.'
+response: 'After they finished, Lily thanked her mom for sharing the needle and fixing her shirt.'
+response_tokens: 17
+sum_logprob: -67.041389
+sequence_probability: 7.661138e-30
+----
+item 6
+prompt:   'After they finished, Lily thanked her mom for sharing the needle and fixing her shirt.'
+response: 'They both felt happy because they had shared and worked together.'
+response_tokens: 12
+sum_logprob: -40.920914
+sequence_probability: 1.691504e-18
+----
+item 7
+prompt:   'Once upon a time, there was a little car named Beep.'
+response: 'Beep loved to go fast and play in the sun.'
+response_tokens: 12
+sum_logprob: -29.325558
+sequence_probability: 1.836845e-13
+----
+item 8
+prompt:   'Beep loved to go fast and play in the sun.'
+response: 'Beep was a healthy car because he always had good fuel.'
+response_tokens: 13
+sum_logprob: -55.721642
+sequence_probability: 6.315371e-25
+----
+item 9
+prompt:   'Beep was a healthy car because he always had good fuel.'
+response: 'Good fuel made Beep happy and strong.'
+response_tokens: 9
+sum_logprob: -39.614914
+sequence_probability: 6.243988e-18
+----
+item 10
+prompt:   'Good fuel made Beep happy and strong.'
+response: 'One day, Beep was driving in the park when he saw a big tree.'
+response_tokens: 17
+sum_logprob: -31.374708
+sequence_probability: 2.366667e-14
+----
+item 11
+prompt:   'One day, Beep was driving in the park when he saw a big tree.'
+response: 'The tree had many leaves that were falling.'
+response_tokens: 9
+sum_logprob: -30.845055
+sequence_probability: 4.019417e-14
+----
+item 12
+prompt:   'The tree had many leaves that were falling.'
+response: 'Beep liked how the leaves fall and wanted to play with them.'
+response_tokens: 14
+sum_logprob: -66.724724
+sequence_probability: 1.051526e-29
+----
+item 13
+prompt:   'Beep liked how the leaves fall and wanted to play with them.'
+response: 'Beep drove under the tree and watched the leaves fall on him.'
+response_tokens: 14
+sum_logprob: -47.098160
+sequence_probability: 3.511798e-21
+----
+item 14
+prompt:   'Beep drove under the tree and watched the leaves fall on him.'
+response: 'He laughed and beeped his horn.'
+response_tokens: 9
+sum_logprob: -30.419725
+sequence_probability: 6.150088e-14
+----
+item 15
+prompt:   'He laughed and beeped his horn.'
+response: 'Beep played with the falling leaves all day.'
+response_tokens: 10
+sum_logprob: -49.119259
+sequence_probability: 4.653476e-22
+----
+item 16
+prompt:   'Beep played with the falling leaves all day.'
+response: 'When it was time to go home, Beep knew he needed more fuel.'
+response_tokens: 16
+sum_logprob: -47.332420
+sequence_probability: 2.778374e-21
+----
+item 17
+prompt:   'When it was time to go home, Beep knew he needed more fuel.'
+response: 'He went to the fuel place and got more healthy fuel.'
+response_tokens: 12
+sum_logprob: -51.168171
+sequence_probability: 5.997165e-23
+----
+item 18
+prompt:   'He went to the fuel place and got more healthy fuel.'
+response: 'Now, Beep was ready to go fast and play again the next day.'
+response_tokens: 16
+sum_logprob: -62.256432
+sequence_probability: 9.170121e-28
+----
+item 19
+prompt:   'Now, Beep was ready to go fast and play again the next day.'
+response: 'And Beep lived happily ever after.'
+response_tokens: 8
+sum_logprob: -25.488026
+sequence_probability: 8.524934e-12
+----
+item 20
+prompt:   'One day, a little fish named Fin was swimming near the shore.'
+response: 'He saw a big crab and wanted to be friends.'
+response_tokens: 11
+sum_logprob: -35.522114
+sequence_probability: 3.740602e-16
+----
+item 21
+prompt:   'Do you want to play?" asked the little fish.'
+response: 'The crab looked at Fin and said, "No, I don\'t want to play.'
+response_tokens: 18
+sum_logprob: -42.836964
+sequence_probability: 2.489678e-19
+----
+item 22
+prompt:   'The crab looked at Fin and said, "No, I don\'t want to play.'
+response: 'I am cold and I don\'t feel fine."\n\nFin felt sad but wanted to help the crab feel better.'
+response_tokens: 24
+sum_logprob: -69.216118
+sequence_probability: 8.706039e-31
+----
+item 23
+prompt:   'I am cold and I don\'t feel fine."\n\nFin felt sad but wanted to help the crab feel better.'
+response: 'He swam away and thought of a plan.'
+response_tokens: 10
+sum_logprob: -36.518250
+sequence_probability: 1.381418e-16
+----
+item 24
+prompt:   'He swam away and thought of a plan.'
+response: 'He remembered that the sun could make things warm.'
+response_tokens: 10
+sum_logprob: -41.538261
+sequence_probability: 9.123509e-19
+----
+item 25
+prompt:   'He remembered that the sun could make things warm.'
+response: 'So, Fin swam to the top of the water and called to the sun, "Please, sun, help my new friend feel fine and not freeze!"\n\nThe sun heard Fin\'s call and shone its warm light on the shore.'
+response_tokens: 49
+sum_logprob: -inf
+sequence_probability: 6.070722e-74
+----
+item 26
+prompt:   'So, Fin swam to the top of the water and called to the sun, "Please, sun, help my new friend feel fine and not freeze!"\n\nThe sun heard Fin\'s call and shone its warm light on the shore.'
+response: 'The crab started to feel better and not so cold.'
+response_tokens: 11
+sum_logprob: -45.904816
+sequence_probability: 1.158223e-20
+----
+item 27
+prompt:   'The crab started to feel better and not so cold.'
+response: 'He saw Fin and said, "Thank you, little fish, for making me feel fine.'
+response_tokens: 19
+sum_logprob: -66.078423
+sequence_probability: 2.006806e-29
+----
+item 28
+prompt:   'He saw Fin and said, "Thank you, little fish, for making me feel fine.'
+response: "I don't feel like I will freeze now."
+response_tokens: 10
+sum_logprob: -45.609837
+sequence_probability: 1.555605e-20
+----
+item 29
+prompt:   "I don't feel like I will freeze now."
+response: 'Let\'s play together!" And so, Fin and the crab played and became good friends.'
+response_tokens: 18
+sum_logprob: -71.712502
+sequence_probability: 7.172273e-32

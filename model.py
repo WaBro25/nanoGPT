@@ -303,13 +303,26 @@ class GPT(nn.Module):
         return mfu
 
     @torch.no_grad()
-    def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None):
+    def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None, return_prob=False, fixed_response=None):
         """
         Take a conditioning sequence of indices idx (LongTensor of shape (b,t)) and complete
         the sequence max_new_tokens times, feeding the predictions back into the model each time.
         Most likely you'll want to make sure to be in model.eval() mode of operation for this.
         """
-        for _ in range(max_new_tokens):
+        # If return_prob=True, we also return the probability of the generated tokens
+        # under the (temperature-scaled, optional top_k truncated) sampling distribution.
+        # We accumulate in log-space for numerical stability.
+        #
+        # If fixed_response is provided, it must be a list of token ids to append.
+        # In that case we do not sample; we force the next token at each step to match
+        # fixed_response and can use this method to score a candidate continuation.
+        logprob_sum = None
+        if fixed_response is not None:
+            if not isinstance(fixed_response, list):
+                raise TypeError("fixed_response must be a list of token ids (ints)")
+            if len(fixed_response) != max_new_tokens:
+                raise ValueError("When fixed_response is provided, max_new_tokens must equal len(fixed_response)")
+        for step in range(max_new_tokens):
             # if the sequence context is growing too long we must crop it at block_size
             idx_cond = idx if idx.size(1) <= self.config.block_size else idx[:, -self.config.block_size:]
             # forward the model to get the logits for the index in the sequence
@@ -320,11 +333,26 @@ class GPT(nn.Module):
             if top_k is not None:
                 v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
                 logits[logits < v[:, [-1]]] = -float('Inf')
-            # apply softmax to convert logits to (normalized) probabilities
+            # For sampling we need probabilities; for scoring we prefer log-probabilities.
             probs = F.softmax(logits, dim=-1)
-            # sample from the distribution
-            idx_next = torch.multinomial(probs, num_samples=1)
+            logprobs = None
+            if return_prob:
+                # Use log_softmax for numerical stability, and accumulate in higher precision.
+                logprobs = F.log_softmax(logits.to(torch.float64), dim=-1)
+            # sample from the distribution (or force a fixed token)
+            if fixed_response is None:
+                idx_next = torch.multinomial(probs, num_samples=1)
+            else:
+                tok = int(fixed_response[step])
+                idx_next = torch.full((idx.size(0), 1), tok, device=idx.device, dtype=idx.dtype)
+            if return_prob:
+                # Gather the probability assigned to the sampled token for each batch element.
+                lp = logprobs.gather(dim=-1, index=idx_next).squeeze(-1)  # (b,) float64
+                logprob_sum = lp if logprob_sum is None else (logprob_sum + lp)
             # append sampled index to the running sequence and continue
             idx = torch.cat((idx, idx_next), dim=1)
 
+        if return_prob:
+            # Return probability as a Tensor of shape (b,). (Can be converted to float with .item() for b=1.)
+            return idx, torch.exp(logprob_sum).to(dtype=torch.float64)
         return idx
